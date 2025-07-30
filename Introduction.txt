@@ -1,0 +1,18 @@
+Introduction: 
+
+- Founded in 1999, California, by Marc Benioff
+- Cloud based CRM platform
+- First off, spanned CRM (Customer Relationship Management) and SaaS.
+- Later expanded to PaaS as well. Now it spans a wide range of domains including CRM, Analytics, integration, and collaboration.
+- Multi-tenant architecture; kind of like same workspace, but every user is isolated and secured.
+- Meta-data driven
+
+Key components:
+
+There are a few clouds used for specific use-cases. 
+
+1. Sales cloud (Manage standard salesforce objects)
+2. Service cloud
+3. Commerce cloud (B2B and B2C)
+4. Marketing cloud
+5. Analytics cloud
