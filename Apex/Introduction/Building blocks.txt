@@ -1,0 +1,23 @@
+Name Conventions:
+
+Class Name:
+Incorrect Class Name: myfirstClass
+Correct Class Name: 
+
+Method Name:
+Incorrect Method Name: myfirstmethod
+
+Data Types:
+Primitive and Non-primitive
+
+Primitive(Single Stored Data):
+String, Integer, Double, Blob etc------
+
+Non-Primitive (Collection of Data):
+List
+Set
+Map
+
+Types of statics:
+Static Method
+Non Static method
