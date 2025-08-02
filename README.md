@@ -25,3 +25,7 @@ Clone the repo:
 ```bash
 git clone https://github.com/Arjun256900/learn-salesforce.git
 cd learn-salesforce
+```
+
+## Resources
+1. [Salesforce documentation](https://developer.salesforce.com/docs)
