@@ -1,0 +1,26 @@
+1. DML Governor Limits
+
+DML (Data Manipulation Language) means operations like insert, update, upsert and undelete.
+
+Limits: (if exceeded, then DML error)
+- Maximum of 150DML statements per transaction
+- Maximum of 10k records processed by DML statements per transaction.
+
+What happens if you exceed these?
+
+- Your transaction will fail with a runtime exception like this: 
+System.LimitException: Too many DML statements:151
+
+2. SOQL Governor Limits
+
+SOQL (Salesforce Object Query Language) is used to fetch data from Salesforce.
+
+Limits:
+
+- Maximum of 100 SOQL queries per transaction
+
+Why does this matter?
+
+- If you exceed the number of SOQL queries, your code will throw an error:
+System.LimitException: Too many SOQL queries: 101
+If you to process more than 50k records, that query also fails.
