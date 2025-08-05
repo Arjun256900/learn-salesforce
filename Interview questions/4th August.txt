@@ -30,3 +30,70 @@ Why?
 - Each SOQL inside a loop counts as a separate query
 - If you loop 100 times, you run 100 SOQL queries -> close to or exceed limit of 100 SOQL queries
 - This causes your code to fail with governor limit errors.
+
+How to fix it?
+Use a single SOQL query outside the for loop and process the results in memory
+
+List<Account> accList=[SELECT Id FROM Account LIMIT 100];
+
+Set<Id> accIds=new Set<Id>();
+for(Account acc:accList){
+accIds.add(acc.id){
+}
+
+CPU Time Limit
+
+CPU time means how much time your apex code spends processing on the salesforce servers
+Limit:10,000 millisecond for synchronous apex,60,000 ms for async apex
+
+Why cpu limit matters?
+if your code does too much complex processing or inefficient loops.
+
+Quick best Practices:
+Never put SOQL or DML inside for loops 
+use collections (List,Set,Map) to bulkify queries and DML.
+Use Batch Apex to Process large data sets.
+Use Asynchronous Apex for heavier or long running jobs.
+Always optimize your code to avoid hitting CPU Limits.
+
+What is Asyncronous Apex?
+Asynchronous Apex means running Apex code in the Background separately from the main user interaction.Thisallows Salesforce to handle large or time consuming operations without making users wait.
+
+why do we need Asynchronous Apex?
+1.Long Running Processes :
+Operations like updating thousands of records or calling external systems  can take time.Running them Synchronously can cause delays or timeout errors.
+
+2.Limts and Governor Limits:
+Salesforce has strict limits on CPU time,number of SOQL queries,DML Operations etc.
+Asynchronous Apex has Higher limits and can process records in chunks.
+
+3.Better User Experience :
+Async job run in the background ,so users don't have to wait or face errors while heavy processing happens.
+
+4.Schedule Jobs:
+Sometimes you need to run jobs at specific times.Asynchronous Apex supports scheduling.
+
+Types of Async Apex:
+-> Future methods
+-> Queueable Apex
+-> Batch Apex
+-> Scheduled Apex
+
+Future Methods:
+
+A method annotated with @future runs asynchronously after the current transaction finishes.
+
+why use? To run simple operations in the background without blocking the current process.
+
+Queueable Apex:
+
+Implement the queueable interface. offers more control then future methods supports chaining jobs.
+
+Why use? For more complex async jobs or when you want to chain multiple async jobs.
+
+Apex class:
+public class QueueableExample implements Queueable{
+  private Set<Id> accIds;
+}
+
+
