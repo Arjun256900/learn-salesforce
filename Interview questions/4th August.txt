@@ -24,3 +24,9 @@ Why does this matter?
 - If you exceed the number of SOQL queries, your code will throw an error:
 System.LimitException: Too many SOQL queries: 101
 If you to process more than 50k records, that query also fails.
+
+Why?
+
+- Each SOQL inside a loop counts as a separate query
+- If you loop 100 times, you run 100 SOQL queries -> close to or exceed limit of 100 SOQL queries
+- This causes your code to fail with governor limit errors.
