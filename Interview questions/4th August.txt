@@ -96,4 +96,31 @@ public class QueueableExample implements Queueable{
   private Set<Id> accIds;
 }
 
+Batch Apex
+Implements the Database. Batchable interface to process records in batches
+when dealing with large data volumes that exceed normal.
+why use? when dealing with large data volumes that exceed normal
+start method 
+
+Initializes the batch job by collecting the records to process .it returns either.
+
+execute method:
+performs the actual processing logic on each chunk of records retrieved by the start method.it handles records in manageable batches.
+
+finish method:
+called after all batches are processed .Used for any cost processing logic like notifications ,logging results or chaining another job.
+
+scheduled Apex:
+Implements the Schedulable interface to run Apex classes on a schedule.
+why use? For automating jobs that should run at specific times 
+
+Definition:
+Lightning web components (LWC) are User Interface UI Framework that salesforce Developers use to create customized pages and functions on the salesforce platform.  LWC'S use a standardized JavaScript framework HTML an CSS without a third party framework.
+
+Life Cycle Hooks:
+->Construction()
+->connectedCallback()
+->renderedCallback()
+->disconnectedCallback()
+
 
